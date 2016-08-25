@@ -62,7 +62,6 @@
 	CGFloat width = self.textView.frame.size.width;
 	// http://www.cocoabuilder.com/archive/cocoa/54083-height-of-string-with-fixed-width-and-given-font.html
 	NSTextView *tv = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, width, 1e7)];
-	//sprte.textContainerInset = [Constants textContainerInset];
 	tv.horizontallyResizable = NO;
 	tv.font = [NSFont userFontOfSize:32];
 	tv.alignment = NSTextAlignmentLeft;
