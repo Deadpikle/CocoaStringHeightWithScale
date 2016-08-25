@@ -2,7 +2,7 @@
 //  main.m
 //  NSAttributedStringHeight
 //
-//  Created by School of Computing Macbook on 8/25/16.
+//  Created by Deadpikle on 8/25/16.
 //  Copyright © 2016 Deadpikle. All rights reserved.
 //
 
