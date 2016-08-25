@@ -22,6 +22,7 @@
 @property CGFloat previousScale;
 
 @property (weak) IBOutlet NSTextField *heightOfTextView;
+@property (weak) IBOutlet NSTextField *boundsHeightOfTextView;
 
 @end
 
@@ -98,6 +99,7 @@
 	
 	[self.textView sizeToFit];
 	self.heightOfTextView.stringValue = [NSString stringWithFormat:@"%f", self.textView.frame.size.height];
+	self.boundsHeightOfTextView.stringValue = [NSString stringWithFormat:@"%f", self.textView.bounds.size.height];
 }
 
 - (IBAction)sliderOverrideChangedValue:(NSTextField *)sender {
