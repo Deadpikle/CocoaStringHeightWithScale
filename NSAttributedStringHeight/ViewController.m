@@ -62,10 +62,6 @@
 	[textView scaleUnitSquareToSize:NSMakeSize(scaler, scaler)];
 	if (textView == self.textView)
 		self.previousScale = newScaleFactor;
-	// For some reason, even after ensuring the layout and displaying, the wrapping doesn't update until text is messed
-	// with. This workaround "fixes" that. Since we need the workaround anyway, I removed the ensureLayoutForTextContainer:
-	// (from the SO post) and the documentation-implied [self.notesTextView display] calls.
-	[[textView textStorage] appendAttributedString:[[NSAttributedString alloc] initWithString:@""]];
 	
 }
 
