@@ -50,20 +50,6 @@
 	CGFloat oldScaleFactor = 1.0f;
 	if (textView == self.textView)
 		oldScaleFactor = self.previousScale;
-	/*if (oldScaleFactor != newScaleFactor) {
-		NSSize curDocFrameSize, newDocBoundsSize;
-		NSView *clipView = [textView superview];
-		// Get the frame. The frame must stay the same.
-		if (!clipView) {
-			curDocFrameSize = textView.frame.size;
-		}
-		else {
-			curDocFrameSize = [clipView frame].size;
-		}
-		// The new bounds will be frame divided by scale factor
-		newDocBoundsSize.width = curDocFrameSize.width / newScaleFactor;
-		newDocBoundsSize.height = curDocFrameSize.height / newScaleFactor;
-	}*/
 	CGFloat scaler = newScaleFactor / oldScaleFactor;
 	NSLog(@"Scale factor: %f => scalar = %f", newScaleFactor, scaler);
 	[textView scaleUnitSquareToSize:NSMakeSize(scaler, scaler)];
@@ -80,18 +66,16 @@
 	tv.horizontallyResizable = NO;
 	tv.font = [NSFont userFontOfSize:32];
 	tv.alignment = NSTextAlignmentLeft;
-	tv.usesRuler = NO;
-	tv.usesFindBar = NO;
-	tv.layoutManager.allowsNonContiguousLayout = NO;
 	[tv.textStorage setAttributedString:attributedNotes];
 	[self setScaleFactor:self.slider.floatValue forTextView:tv];
 	
-	[tv.textStorage appendAttributedString:[[NSAttributedString alloc] initWithString:@""]];
+	// In order for usedRectForTextContainer: to be accurate with a scale, you MUST
+	// set the NSTextView as a subview of an NSClipView!
+	NSClipView *clipView = [[NSClipView alloc] initWithFrame:NSMakeRect(0, 0, width, 1e7)];
+	[clipView addSubview:tv];
+	
 	[tv.layoutManager glyphRangeForTextContainer:tv.textContainer];
 	[tv.layoutManager ensureLayoutForTextContainer:tv.textContainer];
-	[tv sizeToFit];
-	[tv needsLayout];
-	[tv needsDisplay];
 	CGFloat finalValue = [tv.layoutManager usedRectForTextContainer:tv.textContainer].size.height;
 	return finalValue;
 }
@@ -102,7 +86,6 @@
 	self.heightLabel.stringValue = [NSString stringWithFormat:@"%f", [self calculateHeightForAttributedString:self.attributedString]];
 	[self setScaleFactor:self.slider.floatValue forTextView:self.textView];
 	
-	[self.textView sizeToFit];
 	self.heightOfTextView.stringValue = [NSString stringWithFormat:@"%f", self.textView.frame.size.height];
 	self.boundsHeightOfTextView.stringValue = [NSString stringWithFormat:@"%f", self.textView.bounds.size.height];
 	self.usedRectHeightOfTextView.stringValue = [NSString stringWithFormat:@"%f", [self.textView.layoutManager usedRectForTextContainer:self.textView.textContainer].size.height];
