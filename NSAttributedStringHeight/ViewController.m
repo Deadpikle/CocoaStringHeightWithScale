@@ -44,19 +44,25 @@
 	// Update the view, if already loaded.
 }
 
+// adjusted from: http://stackoverflow.com/a/14113905/3938401
 - (void)setScaleFactor:(CGFloat)newScaleFactor forTextView:(NSTextView*)textView {
 	CGFloat oldScaleFactor = 1.0f;
 	if (textView == self.textView)
 		oldScaleFactor = self.previousScale;
-	if (oldScaleFactor != newScaleFactor) {
+	/*if (oldScaleFactor != newScaleFactor) {
 		NSSize curDocFrameSize, newDocBoundsSize;
 		NSView *clipView = [textView superview];
 		// Get the frame. The frame must stay the same.
-		curDocFrameSize = [clipView frame].size;
+		if (!clipView) {
+			curDocFrameSize = textView.frame.size;
+		}
+		else {
+			curDocFrameSize = [clipView frame].size;
+		}
 		// The new bounds will be frame divided by scale factor
 		newDocBoundsSize.width = curDocFrameSize.width / newScaleFactor;
 		newDocBoundsSize.height = curDocFrameSize.height / newScaleFactor;
-	}
+	}*/
 	CGFloat scaler = newScaleFactor / oldScaleFactor;
 	NSLog(@"Scale factor: %f => scalar = %f", newScaleFactor, scaler);
 	[textView scaleUnitSquareToSize:NSMakeSize(scaler, scaler)];
@@ -83,6 +89,8 @@
 	[tv.layoutManager glyphRangeForTextContainer:tv.textContainer];
 	[tv.layoutManager ensureLayoutForTextContainer:tv.textContainer];
 	[tv sizeToFit];
+	[tv needsLayout];
+	[tv needsDisplay];
 	CGFloat finalValue = [tv.layoutManager usedRectForTextContainer:tv.textContainer].size.height;
 	return finalValue;
 }
