@@ -85,6 +85,7 @@
 	self.heightLabel.stringValue = [NSString stringWithFormat:@"%f", [self calculateHeightForAttributedString:self.attributedString]];
 	[self setScaleFactor:self.slider.floatValue forTextView:self.textView];
 	
+	[self.textView sizeToFit];
 	self.heightOfTextView.stringValue = [NSString stringWithFormat:@"%f", self.textView.frame.size.height];
 	self.boundsHeightOfTextView.stringValue = [NSString stringWithFormat:@"%f", self.textView.bounds.size.height];
 	self.usedRectHeightOfTextView.stringValue = [NSString stringWithFormat:@"%f", [self.textView.layoutManager usedRectForTextContainer:self.textView.textContainer].size.height];
