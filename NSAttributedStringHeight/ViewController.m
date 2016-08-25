@@ -21,6 +21,8 @@
 @property (unsafe_unretained) IBOutlet NSTextView *textView;
 @property CGFloat previousScale;
 
+@property (weak) IBOutlet NSTextField *heightOfTextView;
+
 @end
 
 @implementation ViewController
@@ -67,9 +69,9 @@
 }
 
 -(CGFloat)calculateHeightForAttributedString:(NSAttributedString*)attributedNotes {
-	CGFloat width = 200;
+	CGFloat width = self.textView.frame.size.width;
 	// http://www.cocoabuilder.com/archive/cocoa/54083-height-of-string-with-fixed-width-and-given-font.html
-	NSTextView *tv = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, width - 20, 1e7)];
+	NSTextView *tv = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, width, 1e7)];
 	//sprte.textContainerInset = [Constants textContainerInset];
 	tv.horizontallyResizable = NO;
 	tv.font = [NSFont userFontOfSize:32];
@@ -84,10 +86,7 @@
 	[tv.layoutManager glyphRangeForTextContainer:tv.textContainer];
 	[tv.layoutManager ensureLayoutForTextContainer:tv.textContainer];
 	[tv sizeToFit];
-	CGFloat finalValue = [tv.layoutManager usedRectForTextContainer:tv.textContainer].size.height + 10.0f;
-	if (finalValue < 78.0f) {
-		finalValue = 78.0f;
-	}
+	CGFloat finalValue = [tv.layoutManager usedRectForTextContainer:tv.textContainer].size.height;
 	return finalValue;
 }
 
@@ -96,6 +95,9 @@
 	self.sliderOverride.stringValue = [NSString stringWithFormat:@"%f", self.slider.floatValue];
 	self.heightLabel.stringValue = [NSString stringWithFormat:@"%f", [self calculateHeightForAttributedString:self.attributedString]];
 	[self setScaleFactor:self.slider.floatValue forTextView:self.textView];
+	
+	[self.textView sizeToFit];
+	self.heightOfTextView.stringValue = [NSString stringWithFormat:@"%f", self.textView.frame.size.height];
 }
 
 - (IBAction)sliderOverrideChangedValue:(NSTextField *)sender {
