@@ -18,6 +18,9 @@
 @property (weak) IBOutlet NSTextField *sliderOverride;
 - (IBAction)sliderOverrideChangedValue:(NSTextField *)sender;
 
+@property (unsafe_unretained) IBOutlet NSTextView *textView;
+@property CGFloat previousScale;
+
 @end
 
 @implementation ViewController
@@ -25,6 +28,10 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	self.attributedString = [[NSAttributedString alloc] initWithString:@"Hello! I am an attributed string that is very long Hello! I am an attributed string that is very long Hello! I am an attributed string that is very long Hello! I am an attributed string that is very longHello! I am an attributed string that is very long Hello! I am an attributed string that is very longHello! I am an attributed string that is very longHello! I am an attributed string that is very longHello! I am an attributed string that is very long Hello! I am an attributed string that is very longHello! I am an attributed string that is very longHello! I am an attributed string that is very longHello! I am an attributed string that is very longv Hello! I am an attributed string that is very long Hello! I am an attributed string that is very long Hello! I am an attributed string that is very long"];
+	[self.textView.textStorage setAttributedString:self.attributedString];
+	self.previousScale = 1.0f;
+	self.slider.floatValue = 1.0f;
+	[self sliderChangedValue:nil];
 	// Do any additional setup after loading the view.
 }
 
@@ -36,6 +43,8 @@
 
 - (void)setScaleFactor:(CGFloat)newScaleFactor forTextView:(NSTextView*)textView {
 	CGFloat oldScaleFactor = 1.0f;
+	if (textView == self.textView)
+		oldScaleFactor = self.previousScale;
 	if (oldScaleFactor != newScaleFactor) {
 		NSSize curDocFrameSize, newDocBoundsSize;
 		NSView *clipView = [textView superview];
@@ -48,6 +57,8 @@
 	CGFloat scaler = newScaleFactor / oldScaleFactor;
 	NSLog(@"Scale factor: %f => scalar = %f", newScaleFactor, scaler);
 	[textView scaleUnitSquareToSize:NSMakeSize(scaler, scaler)];
+	if (textView == self.textView)
+		self.previousScale = newScaleFactor;
 	// For some reason, even after ensuring the layout and displaying, the wrapping doesn't update until text is messed
 	// with. This workaround "fixes" that. Since we need the workaround anyway, I removed the ensureLayoutForTextContainer:
 	// (from the SO post) and the documentation-implied [self.notesTextView display] calls.
@@ -84,6 +95,7 @@
 	NSLog(@"Slider changed value to %f", self.slider.floatValue);
 	self.sliderOverride.stringValue = [NSString stringWithFormat:@"%f", self.slider.floatValue];
 	self.heightLabel.stringValue = [NSString stringWithFormat:@"%f", [self calculateHeightForAttributedString:self.attributedString]];
+	[self setScaleFactor:self.slider.floatValue forTextView:self.textView];
 }
 
 - (IBAction)sliderOverrideChangedValue:(NSTextField *)sender {

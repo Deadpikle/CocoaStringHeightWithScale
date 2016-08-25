@@ -670,18 +670,18 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="696" height="342"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uvi-mb-yFL">
-                                <rect key="frame" x="192" y="183" width="96" height="20"/>
+                                <rect key="frame" x="192" y="255" width="96" height="20"/>
                                 <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="0.10000000000000001" maxValue="5" doubleValue="1" tickMarkPosition="above" sliderType="linear" id="BpF-VK-oVb"/>
                                 <connections>
                                     <action selector="sliderChangedValue:" target="XfG-lQ-9wD" id="Aop-To-cL5"/>
                                 </connections>
                             </slider>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qjT-1o-eeZ">
-                                <rect key="frame" x="207" y="165" width="81" height="17"/>
+                                <rect key="frame" x="207" y="237" width="81" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Font scale" id="Stt-AF-G1U">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -689,7 +689,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IfG-kh-qxk">
-                                <rect key="frame" x="166" y="185" width="31" height="17"/>
+                                <rect key="frame" x="166" y="257" width="31" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0.1" id="i0H-pm-b4T">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -697,7 +697,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LUy-97-R69">
-                                <rect key="frame" x="292" y="185" width="42" height="17"/>
+                                <rect key="frame" x="292" y="257" width="42" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="5" id="vJL-md-VKT">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -705,7 +705,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="48p-wm-ZQm">
-                                <rect key="frame" x="192" y="119" width="176" height="22"/>
+                                <rect key="frame" x="192" y="191" width="176" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Manual slider override" drawsBackground="YES" id="iYh-FX-idV">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -716,7 +716,7 @@
                                 </connections>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U3v-py-ip9">
-                                <rect key="frame" x="40" y="122" width="146" height="17"/>
+                                <rect key="frame" x="40" y="194" width="146" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Manual slider override" id="U1W-i7-R1B">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -724,7 +724,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bHq-fA-bHW">
-                                <rect key="frame" x="210" y="224" width="160" height="17"/>
+                                <rect key="frame" x="210" y="296" width="160" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Height of string" id="fVj-HG-Qt4">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -732,24 +732,53 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K04-US-js5">
-                                <rect key="frame" x="155" y="224" width="53" height="17"/>
+                                <rect key="frame" x="155" y="296" width="53" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Height:" id="KUM-KA-FAk">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMd-4X-thf">
+                                <rect key="frame" x="82" y="10" width="492" height="173"/>
+                                <clipView key="contentView" ambiguous="YES" id="imj-TF-cvc">
+                                    <rect key="frame" x="1" y="1" width="475" height="171"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView ambiguous="YES" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="BfU-Ua-z5J">
+                                            <rect key="frame" x="0.0" y="0.0" width="475" height="171"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="minSize" width="475" height="171"/>
+                                            <size key="maxSize" width="475" height="10000000"/>
+                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="minSize" width="475" height="171"/>
+                                            <size key="maxSize" width="475" height="10000000"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="C55-Tn-PjK">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="khy-Vh-fx3">
+                                    <rect key="frame" x="476" y="1" width="15" height="171"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="heightLabel" destination="bHq-fA-bHW" id="aSU-w6-fTQ"/>
                         <outlet property="slider" destination="Uvi-mb-yFL" id="KWZ-Up-zh6"/>
                         <outlet property="sliderOverride" destination="48p-wm-ZQm" id="djR-a8-fuc"/>
+                        <outlet property="textView" destination="BfU-Ua-z5J" id="V3b-eA-FZq"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="643"/>
+            <point key="canvasLocation" x="413" y="679"/>
         </scene>
     </scenes>
 </document>
