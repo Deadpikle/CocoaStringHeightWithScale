@@ -82,6 +82,7 @@
 
 - (IBAction)sliderChangedValue:(id)sender {
 	NSLog(@"Slider changed value to %f", self.slider.floatValue);
+	self.sliderOverride.stringValue = [NSString stringWithFormat:@"%f", self.slider.floatValue];
 	self.heightLabel.stringValue = [NSString stringWithFormat:@"%f", [self calculateHeightForAttributedString:self.attributedString]];
 }
 
