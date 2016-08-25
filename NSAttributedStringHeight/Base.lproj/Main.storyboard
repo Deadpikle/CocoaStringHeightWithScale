@@ -743,18 +743,18 @@
                             <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMd-4X-thf">
                                 <rect key="frame" x="74" y="128" width="492" height="173"/>
                                 <clipView key="contentView" ambiguous="YES" id="imj-TF-cvc">
-                                    <rect key="frame" x="1" y="1" width="475" height="171"/>
+                                    <rect key="frame" x="1" y="1" width="490" height="171"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView ambiguous="YES" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="BfU-Ua-z5J">
-                                            <rect key="frame" x="0.0" y="0.0" width="475" height="171"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="490" height="171"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="475" height="171"/>
-                                            <size key="maxSize" width="475" height="10000000"/>
+                                            <size key="minSize" width="490" height="171"/>
+                                            <size key="maxSize" width="490" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="475" height="171"/>
-                                            <size key="maxSize" width="475" height="10000000"/>
+                                            <size key="minSize" width="490" height="171"/>
+                                            <size key="maxSize" width="490" height="10000000"/>
                                         </textView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -764,7 +764,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="khy-Vh-fx3">
-                                    <rect key="frame" x="476" y="1" width="15" height="171"/>
+                                    <rect key="frame" x="475" y="1" width="16" height="171"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -800,6 +800,22 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JMK-fZ-Z7t">
+                                <rect key="frame" x="310" y="66" width="166" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="q1F-S6-1qV">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ogN-dJ-GTo">
+                                <rect key="frame" x="175" y="66" width="134" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Text view rect height:" id="YZc-EA-nNt">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
@@ -809,6 +825,7 @@
                         <outlet property="slider" destination="Uvi-mb-yFL" id="KWZ-Up-zh6"/>
                         <outlet property="sliderOverride" destination="48p-wm-ZQm" id="djR-a8-fuc"/>
                         <outlet property="textView" destination="BfU-Ua-z5J" id="V3b-eA-FZq"/>
+                        <outlet property="usedRectHeightOfTextView" destination="JMK-fZ-Z7t" id="ZMG-sB-L3F"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
