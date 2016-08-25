@@ -29,9 +29,27 @@
 
 @implementation ViewController
 
+-(NSAttributedString*)attributedStringFromHTMLString:(NSString *)htmlString {
+	@try {
+		NSError *error;
+		NSData *data = [htmlString dataUsingEncoding:NSUTF8StringEncoding];
+		NSAttributedString *str =
+		[[NSAttributedString alloc] initWithData:data
+										 options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+												   NSCharacterEncodingDocumentAttribute: [NSNumber numberWithInt:NSUTF8StringEncoding]}
+							  documentAttributes:nil error:&error];
+		if (!error)
+			return str;
+		return nil;
+	}
+	@catch (NSException *e) {
+		return nil;
+	}
+}
+
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	self.attributedString = [[NSAttributedString alloc] initWithString:@"Hello! I am an attributed string that is very long Hello! I am an attributed string that is very long Hello! I am an attributed string that is very long Hello! I am an attributed string that is very longHello! I am an attributed string that is very long Hello! I am an attributed string that is very longHello! I am an attributed string that is very longHello! I am an attributed string that is very longHello! I am an attributed string that is very long Hello! I am an attributed string that is very longHello! I am an attributed string that is very longHello! I am an attributed string that is very longHello! I am an attributed string that is very longv Hello! I am an attributed string that is very long Hello! I am an attributed string that is very long Hello! I am an attributed string that is very long"];
+	self.attributedString = [self attributedStringFromHTMLString:@"<p>hi <b>m</b>om!hi <b>m</b>om!hi <b>m</b>om!hi <b>m</b>om!hi <b>m</b>om!hi <b>m</b>om!hi <b>m</b>om!hi <b>m</b>om!hi <b>m</b>om!hi <b>m</b>om!</p>"];
 	[self.textView.textStorage setAttributedString:self.attributedString];
 	self.previousScale = 1.0f;
 	self.slider.floatValue = 1.0f;
